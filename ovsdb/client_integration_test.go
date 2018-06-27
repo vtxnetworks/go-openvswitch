@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/digitalocean/go-openvswitch/ovsdb"
 	"github.com/google/go-cmp/cmp"
+	"github.com/linkernetworks/go-openvswitch/ovsdb"
 )
 
 func TestClientIntegration(t *testing.T) {

@@ -20,8 +20,8 @@ import (
 	"io"
 	"testing"
 
-	"github.com/digitalocean/go-openvswitch/ovsdb/internal/jsonrpc"
 	"github.com/google/go-cmp/cmp"
+	"github.com/linkernetworks/go-openvswitch/ovsdb/internal/jsonrpc"
 )
 
 func TestConnSendNoRequestID(t *testing.T) {
