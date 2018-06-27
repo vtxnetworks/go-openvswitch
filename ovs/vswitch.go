@@ -49,10 +49,24 @@ func (v *VSwitchService) AddBridge(bridge string) error {
 	return err
 }
 
+// AddBridgeWithType attaches a bridge with type to Open vSwitch.  The bridge may or may
+// not already exist. The datapath type default value is "system".
+func (v *VSwitchService) AddBridgeWithType(bridge string, dpType string) error {
+	_, err := v.exec("--may-exist", "add-br", bridge, "--", "set", "bridge", bridge, fmt.Sprintf("datapath_type=%s", dpType))
+	return err
+}
+
 // AddPort attaches a port to a bridge on Open vSwitch.  The port may or may
 // not already exist.
 func (v *VSwitchService) AddPort(bridge string, port string) error {
 	_, err := v.exec("--may-exist", "add-port", bridge, string(port))
+	return err
+}
+
+// AddDPDKPort attaches a port to a bridge on Open vSwitch.  The port may or may
+// not already exist.
+func (v *VSwitchService) AddDPDKPort(bridge string, port string, dpdkDevargs string) error {
+	_, err := v.exec("--may-exist", "add-port", bridge, string(port), "--", "set", "Interface", string(port), "type=dpdk", fmt.Sprintf("options:dpdk-devargs=%s", dpdkDevargs))
 	return err
 }
 
