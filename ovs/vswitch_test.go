@@ -49,6 +49,32 @@ func TestClientVSwitchAddBridgeOK(t *testing.T) {
 	}
 }
 
+func TestClientVSwitchAddBridgeWithTypeOK(t *testing.T) {
+	bridge := "br0"
+	dpType := "netdev"
+
+	// Apply Timeout option to verify arguments
+	c := testClient([]OptionFunc{Timeout(1)}, func(cmd string, args ...string) ([]byte, error) {
+		// Verify correct command and arguments passed, including option flags
+		if want, got := "ovs-vsctl", cmd; want != got {
+			t.Fatalf("incorrect command:\n- want: %v\n-  got: %v",
+				want, got)
+		}
+
+		wantArgs := []string{"--timeout=1", "--may-exist", "add-br", string(bridge), "--", "set", "bridge", string(bridge), fmt.Sprintf("datapath_type=%s", dpType)}
+		if want, got := wantArgs, args; !reflect.DeepEqual(want, got) {
+			t.Fatalf("incorrect arguments\n- want: %v\n-  got: %v",
+				want, got)
+		}
+
+		return nil, nil
+	})
+
+	if err := c.VSwitch.AddBridgeWithType(bridge, dpType); err != nil {
+		t.Fatalf("unexpected error for Client.VSwitch.AddBridgeWithType: %v", err)
+	}
+}
+
 func TestClientVSwitchAddPortOK(t *testing.T) {
 	bridge := "br0"
 	port := "bond0"
@@ -72,6 +98,33 @@ func TestClientVSwitchAddPortOK(t *testing.T) {
 
 	if err := c.VSwitch.AddPort(bridge, port); err != nil {
 		t.Fatalf("unexpected error for Client.VSwitch.AddPort: %v", err)
+	}
+}
+
+func TestClientVSwitchAddDPDKPortOK(t *testing.T) {
+	bridge := "br0"
+	port := "dpdk0"
+	dpdkDevargs := "0000:00:08.0"
+
+	// Apply Timeout option to verify arguments
+	c := testClient([]OptionFunc{Timeout(1)}, func(cmd string, args ...string) ([]byte, error) {
+		// Verify correct command and arguments passed, including option flags
+		if want, got := "ovs-vsctl", cmd; want != got {
+			t.Fatalf("incorrect command:\n- want: %v\n-  got: %v",
+				want, got)
+		}
+
+		wantArgs := []string{"--timeout=1", "--may-exist", "add-port", string(bridge), string(port), "--", "set", "Interface", string(port), "type=dpdk", fmt.Sprintf("options:dpdk-devargs=%s", dpdkDevargs)}
+		if want, got := wantArgs, args; !reflect.DeepEqual(want, got) {
+			t.Fatalf("incorrect arguments\n- want: %v\n-  got: %v",
+				want, got)
+		}
+
+		return nil, nil
+	})
+
+	if err := c.VSwitch.AddDPDKPort(bridge, port, dpdkDevargs); err != nil {
+		t.Fatalf("unexpected error for Client.VSwitch.AddDPDKPort: %v", err)
 	}
 }
 
