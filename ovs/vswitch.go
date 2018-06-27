@@ -283,17 +283,17 @@ func (o PortOptions) slice() []string {
 	var s []string
 
 	if o.Tag != nil {
-		s = append(s, fmt.Sprintf("tag=%p,", o.Tag))
+		s = append(s, fmt.Sprintf("tag=%s,", strconv.Itoa(*o.Tag)))
 	}
 
 	if o.VLANMode != nil {
-		s = append(s, fmt.Sprintf("vlan_mode=%p", o.VLANMode))
+		s = append(s, fmt.Sprintf("vlan_mode=%s", *o.VLANMode))
 	}
 
 	if len(o.Trunk) > 0 {
 		var strTrunk string
 		for _, trunk := range o.Trunk {
-			strTrunk += fmt.Sprintf("%s,", strconv.Itoa(int(trunk)))
+			strTrunk += fmt.Sprintf("%s,", strconv.Itoa(trunk))
 		}
 		s = append(s, fmt.Sprintf("trunk=%s", strTrunk))
 	}

@@ -577,7 +577,7 @@ func TestClientVSwitchSetPortOptionsOK(t *testing.T) {
 			"set",
 			"port",
 			port,
-			fmt.Sprintf("vlan_mode=%p", vlanMode),
+			fmt.Sprintf("vlan_mode=%s", *vlanMode),
 			fmt.Sprintf("trunk=%s", trunkSequence),
 		}
 		if want, got := wantArgs, args; !reflect.DeepEqual(want, got) {
