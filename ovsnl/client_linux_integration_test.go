@@ -21,8 +21,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/digitalocean/go-openvswitch/ovsnl"
 	"github.com/google/go-cmp/cmp"
+	"github.com/linkernetworks/go-openvswitch/ovsnl"
 )
 
 func TestLinuxClientIntegration(t *testing.T) {
