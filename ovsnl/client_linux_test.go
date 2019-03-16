@@ -21,11 +21,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/vtxnetworks/go-openvswitch/ovsnl/internal/ovsh"
 	"github.com/mdlayher/genetlink"
 	"github.com/mdlayher/genetlink/genltest"
 	"github.com/mdlayher/netlink"
 	"github.com/mdlayher/netlink/nlenc"
+	"github.com/vtxnetworks/go-openvswitch/ovsnl/internal/ovsh"
 	"golang.org/x/sys/unix"
 )
 

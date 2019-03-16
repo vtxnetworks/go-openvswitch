@@ -18,10 +18,10 @@ import (
 	"fmt"
 	"unsafe"
 
-	"github.com/vtxnetworks/go-openvswitch/ovsnl/internal/ovsh"
 	"github.com/mdlayher/genetlink"
 	"github.com/mdlayher/netlink"
 	"github.com/mdlayher/netlink/nlenc"
+	"github.com/vtxnetworks/go-openvswitch/ovsnl/internal/ovsh"
 )
 
 // A DatapathService provides access to methods which interact with the
