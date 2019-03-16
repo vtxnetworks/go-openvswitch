@@ -26,7 +26,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/linkernetworks/go-openvswitch/ovsdb/internal/jsonrpc"
+	"github.com/vtxnetworks/go-openvswitch/ovsdb/internal/jsonrpc"
 )
 
 // A Client is an OVSDB client.  Clients can be customized by using OptionFuncs

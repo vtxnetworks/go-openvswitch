@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/linkernetworks/go-openvswitch/ovsdb"
+	"github.com/vtxnetworks/go-openvswitch/ovsdb"
 )
 
 func TestClientIntegration(t *testing.T) {

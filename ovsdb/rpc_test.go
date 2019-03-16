@@ -19,8 +19,8 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/linkernetworks/go-openvswitch/ovsdb"
-	"github.com/linkernetworks/go-openvswitch/ovsdb/internal/jsonrpc"
+	"github.com/vtxnetworks/go-openvswitch/ovsdb"
+	"github.com/vtxnetworks/go-openvswitch/ovsdb/internal/jsonrpc"
 )
 
 func TestClientListDatabases(t *testing.T) {
@@ -70,7 +70,7 @@ func TestClientEchoError(t *testing.T) {
 }
 
 func TestClientEchoOK(t *testing.T) {
-	const echo = "github.com/linkernetworks/go-openvswitch/ovsdb"
+	const echo = "github.com/vtxnetworks/go-openvswitch/ovsdb"
 
 	c, _, done := testClient(t, func(req jsonrpc.Request) jsonrpc.Response {
 		if diff := cmp.Diff("echo", req.Method); diff != "" {

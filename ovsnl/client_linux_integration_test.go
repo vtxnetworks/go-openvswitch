@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/linkernetworks/go-openvswitch/ovsnl"
+	"github.com/vtxnetworks/go-openvswitch/ovsnl"
 )
 
 func TestLinuxClientIntegration(t *testing.T) {

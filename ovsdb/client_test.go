@@ -26,8 +26,8 @@ import (
 	"time"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/linkernetworks/go-openvswitch/ovsdb"
-	"github.com/linkernetworks/go-openvswitch/ovsdb/internal/jsonrpc"
+	"github.com/vtxnetworks/go-openvswitch/ovsdb"
+	"github.com/vtxnetworks/go-openvswitch/ovsdb/internal/jsonrpc"
 )
 
 func TestClientJSONRPCError(t *testing.T) {

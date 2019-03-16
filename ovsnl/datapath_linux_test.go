@@ -21,7 +21,7 @@ import (
 	"unsafe"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/linkernetworks/go-openvswitch/ovsnl/internal/ovsh"
+	"github.com/vtxnetworks/go-openvswitch/ovsnl/internal/ovsh"
 	"github.com/mdlayher/genetlink"
 	"github.com/mdlayher/genetlink/genltest"
 	"github.com/mdlayher/netlink"

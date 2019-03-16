@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"unsafe"
 
-	"github.com/linkernetworks/go-openvswitch/ovsnl/internal/ovsh"
+	"github.com/vtxnetworks/go-openvswitch/ovsnl/internal/ovsh"
 	"github.com/mdlayher/genetlink"
 	"github.com/mdlayher/netlink"
 	"github.com/mdlayher/netlink/nlenc"
